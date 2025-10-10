@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiApp - Aprende idiomas leyendo</title>
+    <link rel="stylesheet" href="css/estilo.css">
+
+</head>
+<body>
+    <!-- Encabezado principal de la aplicación -->
+    <header class="encabezado-principal">
+        <div class="contenedor-encabezado">
+            <!-- Logo de la aplicación -->
+            <div class="logo">
+                <img src="logo.png" alt="Logo MiApp" class="imagen-logo">
+                <span class="texto-logo">MiProyeo</span>
+            </div>
+            
+            <!-- Navegación principal - visible cuando no está logueado -->
+            <nav class="navegacion-principal" id="navegacionPrincipal">
+                <ul class="lista-menu">
+                    <li><a href="#inicio" class="enlace-menu">Inicio</a></li>
+                    <li><a href="#caracteristicas" class="enlace-menu">Características</a></li>
+                    <li><a href="#testimonios" class="enlace-menu">Testimonios</a></li>
+                    <li><a href="#precios" class="enlace-menu">Precios</a></li>
+                    <li><a href="#acerca" class="enlace-menu">Acerca</a></li>
+                </ul>
+                <button class="boton-login" id="botonLogin">Iniciar Sesión</button>
+            </nav>
+            
+            <!-- Navegación de usuario - visible cuando está logueado -->
+            <nav class="navegacion-usuario oculto" id="navegacionUsuario">
+                <div class="pestanas-aplicacion">
+                    <button class="pestana activa" data-pestana="textos">Mis Textos</button>
+                    <button class="pestana" data-pestana="vocabulario">Vocabulario</button>
+                    <button class="pestana" data-pestana="progreso">Progreso</button>
+                    <button class="pestana" data-pestana="biblioteca">Biblioteca</button>
+                    <button class="pestana" data-pestana="configuracion">Configuración</button>
+                </div>
+                <div class="info-usuario">
+                    <span class="nombre-usuario">Usuario</span>
+                    <button class="boton-cerrar-sesion" id="botonCerrarSesion">Cerrar Sesión</button>
+                </div>
+            </nav>
+            
+            <!-- Botón de menú móvil -->
+            <button class="boton-menu-movil" id="botonMenuMovil" aria-label="Abrir menú móvil">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+        </div>
+    </header>
+
+    <!-- Contenido principal de la aplicación -->
+    <main class="contenido-principal">
+        <!-- Página de inicio - visible cuando no está logueado -->
+        <section class="pagina-inicio" id="paginaInicio">
+            <!-- Sección hero principal -->
+            <section class="seccion-hero">
+                <div class="contenedor-hero">
+                    <div class="contenido-hero">
+                        <h1 class="titulo-principal">Aprende idiomas leyendo lo que te gusta</h1>
+                        <p class="subtitulo">Haz clic en las palabras para traducirlas y practica con tarjetas de memoria</p>
+                        <button class="boton-comenzar">Comenzar a Aprender</button>
+                    </div>
+                    <div class="demo-traduccion">
+                        <div class="texto-ejemplo">
+                            <p>En el futuro los <span class="palabra-destacada">niños</span> podrán construir sus propios prototipos con legos</p>
+                        </div>
+                        <div class="tarjeta-traduccion">
+                            <span class="traduccion">children</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Espacios publicitarios -->
+            <section class="espacios-publicidad">
+                <div class="contenedor-publicidad">
+                    <div class="anuncio anuncio-1">
+                        <p>Espacio Publicitario 1</p>
+                        <span>Banner 728x90</span>
+                    </div>
+                    <div class="anuncio anuncio-2">
+                        <p>Espacio Publicitario 2</p>
+                        <span>Banner 300x250</span>
+                    </div>
+                    <div class="anuncio anuncio-3">
+                        <p>Espacio Publicitario 3</p>
+                        <span>Banner 728x90</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de características -->
+            <section class="seccion-caracteristicas" id="caracteristicas">
+                <div class="contenedor-caracteristicas">
+                    <h2 class="titulo-seccion">¿Cómo funciona?</h2>
+                    <div class="grid-caracteristicas">
+                        <div class="tarjeta-caracteristica">
+                            <h3>Haz clic para traducir</h3>
+                            <p>Simplemente haz clic en palabras o frases en cualquier texto para traducirlas.</p>
+                        </div>
+                        <div class="tarjeta-caracteristica">
+                            <h3>Practica con tarjetas</h3>
+                            <p>Todas las palabras que traduzcas se guardan y puedes practicarlas cuando quieras.</p>
+                        </div>
+                        <div class="tarjeta-caracteristica">
+                            <h3>Contexto inteligente</h3>
+                            <p>Explicaciones contextuales de palabras y frases usando inteligencia artificial.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de testimonios -->
+            <section class="seccion-testimonios" id="testimonios">
+                <div class="contenedor-testimonios">
+                    <h2 class="titulo-seccion">Lo que dicen nuestros usuarios</h2>
+                    <div class="grid-testimonios">
+                        <div class="tarjeta-testimonio">
+                            <p>"Esta aplicación ha revolucionado mi forma de aprender idiomas. Es increíblemente útil."</p>
+                            <cite>- María García</cite>
+                        </div>
+                        <div class="tarjeta-testimonio">
+                            <p>"La mejor herramienta para aprender vocabulario en contexto. Muy recomendada."</p>
+                            <cite>- Juan Pérez</cite>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de precios -->
+            <section class="seccion-precios" id="precios">
+                <div class="contenedor-precios">
+                    <h2 class="titulo-seccion">Planes de Precios</h2>
+                    <div class="grid-precios">
+                        <div class="tarjeta-precio">
+                            <h3>Gratuito</h3>
+                            <div class="precio">$0<span>/mes</span></div>
+                            <ul class="lista-beneficios">
+                                <li>Traducciones ilimitadas de palabras</li>
+                                <li>10 traducciones de frases por día</li>
+                                <li>Tarjetas de memoria básicas</li>
+                            </ul>
+                            <button class="boton-plan">Comenzar Gratis</button>
+                        </div>
+                        <div class="tarjeta-precio destacada">
+                            <h3>Premium</h3>
+                            <div class="precio">$6<span>/mes</span></div>
+                            <ul class="lista-beneficios">
+                                <li>Traducciones ilimitadas</li>
+                                <li>Explicaciones contextuales</li>
+                                <li>Tarjetas avanzadas</li>
+                                <li>Sin anuncios</li>
+                            </ul>
+                            <button class="boton-plan">Elegir Premium</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección acerca de -->
+            <section class="seccion-acerca" id="acerca">
+                <div class="contenedor-acerca">
+                    <h2 class="titulo-seccion">Acerca de MiApp</h2>
+                    <p class="descripcion-acerca">
+                        MiApp es una plataforma innovadora diseñada para hacer el aprendizaje de idiomas más natural y efectivo. 
+                        Creemos que la mejor manera de aprender un idioma es a través de la lectura de contenido que realmente te interesa.
+                    </p>
+                </div>
+            </section>
+        </section>
+
+        <!-- Contenido de la aplicación - visible cuando está logueado -->
+        <section class="contenido-aplicacion oculto" id="contenidoAplicacion">
+            <!-- Pestaña: Mis Textos -->
+            <div class="panel-pestana activo" id="panelTextos">
+                <div class="encabezado-panel">
+                    <h2>Mis Textos</h2>
+                    <button class="boton-agregar">Agregar Texto</button>
+                </div>
+                <div class="contenido-panel">
+                    <p>Aquí aparecerán tus textos guardados para practicar.</p>
+                    <!-- Contenido de textos se agregará dinámicamente -->
+                </div>
+            </div>
+
+            <!-- Pestaña: Vocabulario -->
+            <div class="panel-pestana" id="panelVocabulario">
+                <div class="encabezado-panel">
+                    <h2>Mi Vocabulario</h2>
+                    <button class="boton-practicar">Practicar</button>
+                </div>
+                <div class="contenido-panel">
+                    <p>Aquí aparecerán las palabras que has traducido.</p>
+                    <!-- Contenido de vocabulario se agregará dinámicamente -->
+                </div>
+            </div>
+
+            <!-- Pestaña: Progreso -->
+            <div class="panel-pestana" id="panelProgreso">
+                <div class="encabezado-panel">
+                    <h2>Mi Progreso</h2>
+                </div>
+                <div class="contenido-panel">
+                    <p>Aquí verás estadísticas de tu aprendizaje.</p>
+                    <!-- Contenido de progreso se agregará dinámicamente -->
+                </div>
+            </div>
+
+            <!-- Pestaña: Biblioteca -->
+            <div class="panel-pestana" id="panelBiblioteca">
+                <div class="encabezado-panel">
+                    <h2>Biblioteca</h2>
+                    <input type="search" placeholder="Buscar textos..." class="buscador-biblioteca">
+                </div>
+                <div class="contenido-panel">
+                    <p>Explora textos disponibles para leer y aprender.</p>
+                    <!-- Contenido de biblioteca se agregará dinámicamente -->
+                </div>
+            </div>
+
+            <!-- Pestaña: Configuración -->
+            <div class="panel-pestana" id="panelConfiguracion">
+                <div class="encabezado-panel">
+                    <h2>Configuración</h2>
+                </div>
+                <div class="contenido-panel">
+                    <div class="grupo-configuracion">
+                        <h3>Idioma de aprendizaje</h3>
+                        <label for="idioma-select" class="visually-hidden">Selecciona idioma</label>
+                        <select id="idioma-select" class="selector-idioma" aria-label="Selecciona idioma">
+                            <option value="en">Inglés</option>
+                            <option value="fr">Francés</option>
+                            <option value="de">Alemán</option>
+                            <option value="it">Italiano</option>
+                        </select>
+                    </div>
+                    <div class="grupo-configuracion">
+                        <h3>Notificaciones</h3>
+                        <label class="interruptor">
+                            <input type="checkbox" checked>
+                            <span class="deslizador"></span>
+                            Recordatorios diarios
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="pie-pagina">
+        <div class="contenedor-pie">
+            <p>&copy; 2024 MiApp. Todos los derechos reservados.</p>
+            <div class="enlaces-pie">
+                <a href="#privacidad">Privacidad</a>
+                <a href="#terminos">Términos</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript para funcionalidad básica -->
+    <script>
+        // Variables globales
+        let usuarioLogueado = false;
+        
+        // Elementos del DOM
+        const botonLogin = document.getElementById('botonLogin');
+        const botonCerrarSesion = document.getElementById('botonCerrarSesion');
+        const navegacionPrincipal = document.getElementById('navegacionPrincipal');
+        const navegacionUsuario = document.getElementById('navegacionUsuario');
+        const paginaInicio = document.getElementById('paginaInicio');
+        const contenidoAplicacion = document.getElementById('contenidoAplicacion');
+        const botonMenuMovil = document.getElementById('botonMenuMovil');
+        
+        // Función para alternar el estado de login
+        function alternarLogin() {
+            usuarioLogueado = !usuarioLogueado;
+            
+            if (usuarioLogueado) {
+                // Mostrar interfaz de usuario logueado
+                navegacionPrincipal.classList.add('oculto');
+                navegacionUsuario.classList.remove('oculto');
+                paginaInicio.classList.add('oculto');
+                contenidoAplicacion.classList.remove('oculto');
+            } else {
+                // Mostrar interfaz de usuario no logueado
+                navegacionPrincipal.classList.remove('oculto');
+                navegacionUsuario.classList.add('oculto');
+                paginaInicio.classList.remove('oculto');
+                contenidoAplicacion.classList.add('oculto');
+            }
+        }
+        
+        // Función para cambiar entre pestañas
+        function cambiarPestana(nombrePestana) {
+            // Remover clase activa de todas las pestañas
+            document.querySelectorAll('.pestana').forEach(pestana => {
+                pestana.classList.remove('activa');
+            });
+            
+            // Ocultar todos los paneles
+            document.querySelectorAll('.panel-pestana').forEach(panel => {
+                panel.classList.remove('activo');
+            });
+            
+            // Activar la pestaña seleccionada
+            document.querySelector(`[data-pestana="${nombrePestana}"]`).classList.add('activa');
+            
+            // Mostrar el panel correspondiente
+            document.getElementById(`panel${nombrePestana.charAt(0).toUpperCase() + nombrePestana.slice(1)}`).classList.add('activo');
+        }
+        
+        // Event listeners
+        botonLogin.addEventListener('click', alternarLogin);
+        botonCerrarSesion.addEventListener('click', alternarLogin);
+        
+        // Event listeners para las pestañas
+        document.querySelectorAll('.pestana').forEach(pestana => {
+            pestana.addEventListener('click', (e) => {
+                const nombrePestana = e.target.getAttribute('data-pestana');
+                cambiarPestana(nombrePestana);
+            });
+        });
+        
+        // Menú móvil
+        botonMenuMovil.addEventListener('click', () => {
+            navegacionPrincipal.classList.toggle('menu-abierto');
+        });
+        
+        // Navegación suave
+        document.querySelectorAll('.enlace-menu').forEach(enlace => {
+            enlace.addEventListener('click', (e) => {
+                e.preventDefault();
+                const destino = e.target.getAttribute('href').substring(1);
+                const elemento = document.getElementById(destino);
+                if (elemento) {
+                    elemento.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

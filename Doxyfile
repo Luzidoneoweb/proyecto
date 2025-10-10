@@ -1,0 +1,23 @@
+PROJECT_NAME           = "Proyecto"
+OUTPUT_DIRECTORY       = docs
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
+
+INPUT                  = ./Taller         # carpeta raíz del proyecto
+RECURSIVE              = YES              # incluye todas las subcarpetas
+FILE_PATTERNS          = *.php *.js
+
+EXTRACT_ALL            = NO               # Solo funciones comentadas aparecerán
+EXTRACT_PRIVATE        = NO               # No incluir funciones privadas
+EXTRACT_STATIC         = NO               # No incluir funciones estáticas
+EXTRACT_LOCAL_CLASSES  = YES              # Incluir funciones locales
+
+HTML_COLORSTYLE_HUE    = 220
+QUIET                  = NO
+WARNINGS               = YES
+GENERATE_TREEVIEW      = YES
+FULL_PATH_NAMES        = YES
+STRIP_FROM_PATH        = .
+
+INLINE_SOURCES         = YES              # Mostrar código fuente en línea
+SHOW_USED_FILES        = YES              # Mostrar archivos usados
