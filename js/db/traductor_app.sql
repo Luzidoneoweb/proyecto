@@ -165,6 +165,17 @@ CREATE TABLE `texts` (
 
 --
 -- Estructura de tabla para la tabla `users`
+
+-- 🔹 Actualizar tabla users a versión segura y lista para producción
+ALTER TABLE `users`
+  MODIFY `id` INT(11) NOT NULL AUTO_INCREMENT,
+  ADD PRIMARY KEY (`id`),
+  ADD COLUMN `imei` VARCHAR(50) DEFAULT NULL AFTER `password`,
+  ADD COLUMN `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `is_admin`,
+  ADD UNIQUE KEY `uniq_email` (`email`);
+
+COMMIT;
+
 --
 
 CREATE TABLE `users` (

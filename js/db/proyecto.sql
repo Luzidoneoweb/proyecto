@@ -1,7 +1,15 @@
 -- phpMyAdmin SQL Dump
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
---
+
+--INSERT INTO `users` (`username`, `email`, `password`, `is_admin`)
+VALUES (
+  'admin',
+  'info@idoneoweb.com',
+  -- Contraseña: Admin123!
+  '$2y$10$QOSzZToM1h0NwGvRQuUprO7n3n2UFh6aAI0o8b9IkkkYduQo3awT2',
+  1
+);
 -- Servidor: 127.0.0.1
 -- Tiempo de generación: 12-10-2025 a las 12:29:24
 -- Versión del servidor: 10.4.32-MariaDB
