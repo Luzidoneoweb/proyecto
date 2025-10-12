@@ -1,0 +1,89 @@
+/* auth.js - vincula #botonLogin con el modal y envía login/registro sin recargar */
+(() => {
+  const modal = document.getElementById('authModal');
+  const btnOpen = document.getElementById('botonLogin');
+  const btnClose = document.getElementById('authClose');
+  const backdrop = document.getElementById('authBackdrop');
+  const tabs = document.querySelectorAll('.auth-tab');
+  const views = document.querySelectorAll('.auth-view');
+
+  // abrir/cerrar modal
+  btnOpen.addEventListener('click', () => modal.style.display = 'block');
+  btnClose.addEventListener('click', () => modal.style.display = 'none');
+  backdrop.addEventListener('click', () => modal.style.display = 'none');
+
+  // cambiar tabs
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const viewId = tab.dataset.view;
+      views.forEach(v => v.style.display = v.id === viewId ? 'block' : 'none');
+    });
+  });
+
+  // helper: mostrar mensaje en modal
+  const showMsg = (el, msg, ok=false) => {
+    el.textContent = msg;
+    el.style.color = ok ? 'green' : 'red';
+  };
+
+  // password fuerte
+  const strongPassword = pwd => /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/.test(pwd);
+
+  // LOGIN
+  const loginForm = document.getElementById('loginForm');
+  loginForm.addEventListener('submit', async e => {
+    e.preventDefault();
+    const msg = document.getElementById('loginMsg');
+    showMsg(msg, 'Comprobando...', true);
+
+    const form = new FormData(loginForm);
+    const res = await fetch('php/login.php', { method:'POST', body:form });
+    const json = await res.json();
+
+    if(json.success){
+      showMsg(msg, json.message, true);
+      setTimeout(()=> location.reload(), 800); // actualizar UI logueada
+    } else {
+      showMsg(msg, json.message);
+    }
+  });
+
+  // REGISTER
+  const registerForm = document.getElementById('registerForm');
+  registerForm.addEventListener('submit', async e => {
+    e.preventDefault();
+    const msg = document.getElementById('registerMsg');
+    const username = registerForm.username.value.trim();
+    const email = registerForm.email.value.trim();
+    const pwd = registerForm.password.value.trim();
+    const pwd2 = registerForm.password_confirm.value.trim();
+    const imei = registerForm.imei.value.trim();
+
+    if(!username){ showMsg(msg,'Nombre obligatorio'); return; }
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ showMsg(msg,'Email inválido'); return; }
+    if(pwd !== pwd2){ showMsg(msg,'Las contraseñas no coinciden'); return; }
+    if(!strongPassword(pwd)){ showMsg(msg,'Contraseña insegura'); return; }
+
+    showMsg(msg, 'Creando cuenta...', true);
+    const form = new FormData(registerForm);
+    const res = await fetch('php/register.php', { method:'POST', body:form });
+    const json = await res.json();
+
+    if(json.success){
+      showMsg(msg,json.message,true);
+      setTimeout(() => {
+        // cambiar a login
+        tabs.forEach(t => t.classList.remove('active'));
+        tabs[0].classList.add('active');
+        views.forEach(v => v.style.display = v.id === 'loginView' ? 'block' : 'none');
+        document.querySelector('#loginView input[name="email"]').value = email;
+        document.querySelector('#loginView input[name="password"]').focus();
+      }, 800);
+    } else {
+      showMsg(msg,json.message);
+    }
+  });
+
+})();
