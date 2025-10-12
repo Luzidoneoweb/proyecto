@@ -28,12 +28,10 @@
                 </ul>
                 <button class="boton-login" id="botonLogin">Iniciar Sesión</button>
             </nav>
-             <?php include 'php/menu_logueado.php'; ?>
-             <?php include 'php/menuMovil.php'; ?>
-
-          
             
-           
+           <?php include 'php/menuLogin.php'; ?>
+            
+           <?php include 'php/menuMovil.php'; ?>
     </header>
 
     <!-- Contenido principal de la aplicación -->
@@ -157,8 +155,7 @@
             </section>
         </section>
 
-       <?php include 'php/conten_logueado.php'; ?>
-
+        <?php include 'php/panel_usuario.php'; ?>
     <!-- Pie de página -->
     <footer class="pie-pagina">
         <div class="contenedor-pie">
@@ -169,10 +166,10 @@
                 <a href="#contacto">Contacto</a>
             </div>
         </div>
+          
     </footer>
 
-    <!-- JavaScript para funcionalidad básica -->
-    <script src="js/global.js"></script>
+    <?php include 'php/global.js'; ?>
 </body>
 </html>
 

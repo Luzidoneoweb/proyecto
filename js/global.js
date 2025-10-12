@@ -1,6 +1,4 @@
-// <!-- JavaScript para funcionalidad básica -->
-   
-        // Variables globales
+ // Variables globales
         let usuarioLogueado = false;
         
         // Elementos del DOM
@@ -78,4 +76,3 @@
                 }
             });
         });
-    
