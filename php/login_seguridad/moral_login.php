@@ -12,6 +12,7 @@
 
     <div id="loginView" class="auth-view">
       <form id="loginForm" autocomplete="on" novalidate>
+        <input type="hidden" name="csrf" value="<?php echo csrf_token(); ?>">
         <div class="field"><label>Email</label><input type="email" name="email" required></div>
         <div class="field"><label>Contraseña</label><input type="password" name="password" required></div>
         <div class="field"><label><input type="checkbox" name="remember"> Recordarme</label></div>
@@ -22,11 +23,12 @@
 
     <div id="registerView" class="auth-view" style="display:none">
       <form id="registerForm" autocomplete="on" novalidate>
-        <div class="field"><label>Nombre de usuario</label><input type="text" name="username" required minlength="2"></div>
+        <input type="hidden" name="csrf" value="<?php echo csrf_token(); ?>">
+        <div class="field"><label>Nombre de usuario</label><input type="text" name="username" required minlength="2" maxlength="50"></div>
         <div class="field"><label>Email</label><input type="email" name="email" required></div>
-        <div class="field"><label>Contraseña</label><input type="password" name="password" required></div>
+        <div class="field"><label>Contraseña</label><input type="password" name="password" required minlength="8"></div>
         <div class="field"><label>Confirmar contraseña</label><input type="password" name="password_confirm" required></div>
-        <div class="field"><label>IMEI (opcional)</label><input type="text" name="imei" pattern="[0-9A-Za-z\-]{0,50}"></div>
+        <div class="field"><label>IMEI (opcional)</label><input type="text" name="imei" pattern="[0-9A-Za-z\-]{0,50}" maxlength="50"></div>
         <div class="auth-msg" id="registerMsg"></div>
         <button type="submit" class="auth-btn">Crear cuenta</button>
       </form>

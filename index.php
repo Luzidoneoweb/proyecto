@@ -172,7 +172,7 @@
         </div>
     </footer>
     
-    <script src="js/login_seguridad/moral_login.php"></script>
+    <?php include 'php/login_seguridad/moral_login.php'; ?>
 
     <!-- JavaScript para funcionalidad básica -->
     <script src="js/global.js"></script>

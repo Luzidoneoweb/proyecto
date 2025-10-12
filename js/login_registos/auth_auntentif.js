@@ -25,7 +25,7 @@
   // helper: mostrar mensaje en modal
   const showMsg = (el, msg, ok=false) => {
     el.textContent = msg;
-    el.style.color = ok ? 'green' : 'red';
+    el.className = 'auth-msg ' + (ok ? 'success' : 'error');
   };
 
   // password fuerte
@@ -39,12 +39,21 @@
     showMsg(msg, 'Comprobando...', true);
 
     const form = new FormData(loginForm);
-    const res = await fetch('php/login.php', { method:'POST', body:form });
+    const res = await fetch('php/login_seguridad/login.php', { method:'POST', body:form });
     const json = await res.json();
 
     if(json.success){
       showMsg(msg, json.message, true);
-      setTimeout(()=> location.reload(), 800); // actualizar UI logueada
+      setTimeout(() => {
+        // Cerrar modal
+        modal.style.display = 'none';
+        // Actualizar UI
+        if (typeof verificarEstadoSesion === 'function') {
+          verificarEstadoSesion();
+        } else {
+          location.reload();
+        }
+      }, 800);
     } else {
       showMsg(msg, json.message);
     }
@@ -68,7 +77,7 @@
 
     showMsg(msg, 'Creando cuenta...', true);
     const form = new FormData(registerForm);
-    const res = await fetch('php/register.php', { method:'POST', body:form });
+    const res = await fetch('php/login_seguridad/registros.php', { method:'POST', body:form });
     const json = await res.json();
 
     if(json.success){
