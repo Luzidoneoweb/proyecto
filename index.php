@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MiApp - Aprende idiomas leyendo</title>
     <link rel="stylesheet" href="css/estilo.css">
-    <link rel="stylesheet" href="css/moral_login.css">
+    <link rel="stylesheet" href="css/moral.css">
 
 </head>
 <body>
@@ -176,7 +176,8 @@
 
     <!-- JavaScript para funcionalidad básica -->
     <script src="js/global.js"></script>
-    <script src="js/login_registros/auth_auntentif.js"></script>
+    <script src="js/login_registos/auth_auntentif.js"></script>
+    
 </body>
 </html>
 
