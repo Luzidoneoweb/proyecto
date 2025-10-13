@@ -15,7 +15,7 @@
         <div class="field"><label>Email</label><input type="email" name="email" required></div>
         <div class="field"><label>Contraseña</label><input type="password" name="password" required></div>
         <div class="field"><label><input type="checkbox" name="remember"> Recordarme</label></div>
-        
+        <div id="loginMsg" class="auth-msg" aria-live="polite"></div>
         <button type="submit" class="auth-btn">Entrar</button>
       </form>
     </div> 
@@ -27,7 +27,7 @@
         <div class="field"><label>Email</label><input type="email" name="email" required></div>
         <div class="field"><label>Contraseña</label><input type="password" name="password" required minlength="8"></div>
         <div class="field"><label>Confirmar contraseña</label><input type="password" name="password_confirm" required></div>
-        
+        <div id="registerMsg" class="auth-msg" aria-live="polite"></div>
         <button type="submit" class="auth-btn">Crear cuenta</button>
       </form>
     </div>

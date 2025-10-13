@@ -2,19 +2,6 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 
---INSERT INTO `users` (`username`, `email`, `password`, `is_admin`)
-VALUES (
-  'admin',
-  'info@idoneoweb.com',
-  -- Contraseña: Admin123!
-  '$2y$10$QOSzZToM1h0NwGvRQuUprO7n3n2UFh6aAI0o8b9IkkkYduQo3awT2',
-  1
-);
--- Servidor: 127.0.0.1
--- Tiempo de generación: 12-10-2025 a las 12:29:24
--- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -28,10 +15,11 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `proyecto`
 --
-CREATE DATABASE IF NOT EXISTS PLASTICAS
+CREATE DATABASE IF NOT EXISTS `proyecto`
 CHARACTER SET utf8mb4
 COLLATE utf8mb4_general_ci;
 
+USE `proyecto`;
 
 -- --------------------------------------------------------
 
@@ -39,14 +27,26 @@ COLLATE utf8mb4_general_ci;
 -- Estructura de tabla para la tabla `users`
 --
 
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
-  `email` varchar(255) DEFAULT NULL,
+  `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `is_admin` tinyint(1) NOT NULL DEFAULT 0
+  `is_admin` tinyint(1) NOT NULL DEFAULT 0,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `last_login` timestamp NULL DEFAULT NULL,
+  `is_active` tinyint(1) NOT NULL DEFAULT 1,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`),
+  UNIQUE KEY `username` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-COMMIT;
+
+--
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`username`, `email`, `password`, `is_admin`) VALUES
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

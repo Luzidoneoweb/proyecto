@@ -2,21 +2,6 @@
 // seguridad.php - Funciones de seguridad para la aplicación
 session_start();
 
-// Generar token CSRF si no existe
-if(!isset($_SESSION['csrf_token'])){
-    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-}
-
-// Función para obtener el token CSRF
-function csrf_token(){
-    return $_SESSION['csrf_token'];
-}
-
-// Función para verificar el token CSRF
-function verify_csrf($token){
-    return isset($_SESSION['csrf_token']) && hash_equals($_SESSION['csrf_token'], $token);
-}
-
 // Función para limpiar datos de entrada
 function limpiar_input($data) {
     $data = trim($data);

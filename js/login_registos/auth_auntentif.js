@@ -68,7 +68,6 @@
     const email = registerForm.email.value.trim();
     const pwd = registerForm.password.value.trim();
     const pwd2 = registerForm.password_confirm.value.trim();
-    const imei = registerForm.imei.value.trim();
 
     if(!username){ showMsg(msg,'Nombre obligatorio'); return; }
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ showMsg(msg,'Email inválido'); return; }

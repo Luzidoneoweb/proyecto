@@ -1,0 +1,8 @@
+2025-10-13 21:34:32 - IP: ::1 - Email: info@idoneoweb.com - Estado: FALLIDO
+2025-10-13 21:35:13 - IP: ::1 - Email: info@idoneoweb.com - Estado: FALLIDO
+2025-10-13 21:41:56 - IP: ::1 - Email: info@idoneoweb.com - Estado: FALLIDO
+2025-10-13 21:45:03 - IP: ::1 - Email: info@idoneoweb.es - Estado: FALLIDO
+2025-10-13 21:45:46 - IP: ::1 - Email: info@idoneoweb.es - Estado: FALLIDO
+2025-10-13 21:48:38 - IP: ::1 - Email: info@idoneoweb.es - Estado: FALLIDO
+2025-10-13 21:53:06 - IP: ::1 - Email: piknte@gmail.com - Estado: EXITOSO
+2025-10-13 21:53:32 - IP: ::1 - Email: piknte@gmail.com - Estado: EXITOSO

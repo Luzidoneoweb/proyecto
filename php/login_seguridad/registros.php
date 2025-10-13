@@ -13,17 +13,11 @@ if($_SERVER['REQUEST_METHOD'] !== 'POST'){
     exit;
 }
 
-// Verificar token CSRF
-if(!isset($_POST['csrf']) || !verify_csrf($_POST['csrf'])){
-    echo json_encode(['success'=>false,'message'=>'Token CSRF inválido']); 
-    exit;
-}
-
 // Limpiar y validar inputs
 $username = limpiar_input($_POST['username'] ?? '');
 $email = limpiar_input($_POST['email'] ?? '');
-$password = $_POST['password'] ?? '';
-$password_confirm = $_POST['password_confirm'] ?? '';
+$password = limpiar_input($_POST['password'] ?? ''); // Aplicar limpiar_input
+$password_confirm = limpiar_input($_POST['password_confirm'] ?? ''); // Aplicar limpiar_input
 
 
 // Validaciones
@@ -49,12 +43,6 @@ if(!validar_password($password)){
 
 if($password !== $password_confirm){
     echo json_encode(['success'=>false,'message'=>'Las contraseñas no coinciden']); 
-    exit;
-}
-
-// Validar IMEI si se proporciona
-if(!empty($imei) && !preg_match('/^[0-9A-Za-z\-]{0,50}$/', $imei)){
-    echo json_encode(['success'=>false,'message'=>'Formato de IMEI inválido']); 
     exit;
 }
 
@@ -89,13 +77,13 @@ $stmt->close();
 
 // Insertar nuevo usuario
 $hash = hash_password($password);
-$insert = $mysqli->prepare("INSERT INTO users (username, email, password, imei, created_at) VALUES (?, ?, ?, ?, NOW())");
+$insert = $mysqli->prepare("INSERT INTO users (username, email, password, created_at) VALUES (?, ?, ?, NOW())");
 if(!$insert){
     echo json_encode(['success'=>false,'message'=>'Error en la consulta de inserción']); 
     exit;
 }
 
-$insert->bind_param("ssss", $username, $email, $hash, $imei);
+$insert->bind_param("sss", $username, $email, $hash);
 if($insert->execute()){
     echo json_encode(['success'=>true,'message'=>'Cuenta creada correctamente']);
 } else {

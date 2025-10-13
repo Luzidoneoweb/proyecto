@@ -13,17 +13,15 @@ if($_SERVER['REQUEST_METHOD'] !== 'POST'){
     exit;
 }
 
-// Verificar token CSRF
-if(!isset($_POST['csrf']) || !verify_csrf($_POST['csrf'])){
-    echo json_encode(['success'=>false,'message'=>'Token CSRF inválido']); 
-    exit;
-}
-
 $email = limpiar_input($_POST['email'] ?? '');
-$password = $_POST['password'] ?? '';
+$password = limpiar_input($_POST['password'] ?? ''); // Aplicar limpiar_input a la contraseña
+
+error_log("Intento de login - Email: " . $email);
+error_log("Intento de login - Password (sin hash): " . $password);
 
 // Validar entrada
 if(!validar_email($email) || empty($password)){
+    error_log("Validación de credenciales fallida para email: " . $email);
     echo json_encode(['success'=>false,'message'=>'Credenciales inválidas']); 
     exit;
 }
@@ -47,6 +45,8 @@ $stmt->execute();
 $res = $stmt->get_result();
 
 if($row = $res->fetch_assoc()){
+    error_log("Usuario encontrado en DB: " . $row['username'] . " (ID: " . $row['id'] . ")");
+    error_log("Hash de contraseña en DB: " . $row['password']);
     if(verificar_password($password, $row['password'])){
         // Login exitoso
         session_regenerate_id(true);
@@ -64,11 +64,13 @@ if($row = $res->fetch_assoc()){
         ]);
     } else {
         // Contraseña incorrecta
+        error_log("Contraseña incorrecta para email: " . $email);
         registrar_intento_login($email, false);
         echo json_encode(['success'=>false,'message'=>'Contraseña incorrecta']);
     }
 } else {
     // Usuario no encontrado
+    error_log("Usuario no encontrado para email: " . $email);
     registrar_intento_login($email, false);
     echo json_encode(['success'=>false,'message'=>'Usuario no encontrado']);
 }

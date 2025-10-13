@@ -9,6 +9,7 @@
 
 </head>
 <body>
+    <?php require_once 'php/login_seguridad/seguridad.php'; ?>
     <!-- Encabezado principal de la aplicación -->
     <header class="encabezado-principal">
         <div class="contenedor-encabezado">
