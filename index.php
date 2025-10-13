@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MiApp - Aprende idiomas leyendo</title>
     <link rel="stylesheet" href="css/estilo.css">
-    <link rel="stylesheet" href="css/moral.css">
+    <link rel="stylesheet" href="css/modal.css">
 
 </head>
 <body>
@@ -14,7 +14,7 @@
         <div class="contenedor-encabezado">
             <!-- Logo de la aplicación -->
             <div class="logo">
-                <img src="logo.png" alt="Logo MiApp" class="imagen-logo">
+                <img src="img/aprenderIngles.png" alt="Logo MiApp" class="imagen-logo">
                 <span class="texto-logo">MiProyeo</span>
             </div>
             
@@ -172,7 +172,7 @@
         </div>
     </footer>
     
-    <?php include 'php/login_seguridad/moral_login.php'; ?>
+    <?php include 'php/login_seguridad/modal_login.php'; ?>
 
     <!-- JavaScript para funcionalidad básica -->
     <script src="js/global.js"></script>
@@ -180,4 +180,3 @@
     
 </body>
 </html>
-

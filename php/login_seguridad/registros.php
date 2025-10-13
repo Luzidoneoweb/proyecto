@@ -24,7 +24,7 @@ $username = limpiar_input($_POST['username'] ?? '');
 $email = limpiar_input($_POST['email'] ?? '');
 $password = $_POST['password'] ?? '';
 $password_confirm = $_POST['password_confirm'] ?? '';
-$imei = limpiar_input($_POST['imei'] ?? '');
+
 
 // Validaciones
 if(!validar_email($email)){

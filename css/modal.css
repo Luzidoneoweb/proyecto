@@ -1,6 +1,6 @@
 /* Modal de autenticación moderno */
 .auth-modal { 
-    position: fixed; 
+    position: fixed;  
     inset: 0; 
     display: none; 
     z-index: 1000; 
