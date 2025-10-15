@@ -39,6 +39,8 @@
     showMsg(msg, 'Comprobando...', true);
 
     const form = new FormData(loginForm);
+    // No es necesario cambiar el nombre del campo aquí, ya que FormData usa los atributos 'name' del HTML
+    // El campo en el HTML ya se cambió a 'identifier'
     const res = await fetch('php/login_seguridad/login.php', { method:'POST', body:form });
     const json = await res.json();
 

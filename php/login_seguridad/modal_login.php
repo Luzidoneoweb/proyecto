@@ -12,7 +12,7 @@
 
     <div id="loginView" class="auth-view">
       <form id="loginForm" autocomplete="on" novalidate>
-        <div class="field"><label>Email</label><input type="email" name="email" required></div>
+        <div class="field"><label>Email o Nombre de usuario</label><input type="text" name="identifier" required></div>
         <div class="field password-field">
           <label>Contraseña</label>
           <input type="password" name="password" required>
