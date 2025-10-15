@@ -1,4 +1,5 @@
 /* auth.js - vincula #botonLogin con el modal y envía login/registro sin recargar */
+console.log('auth_auntentif.js cargado y ejecutándose.');
 (() => {
   const modal = document.getElementById('authModal');
   const btnOpen = document.getElementById('botonLogin');
@@ -92,6 +93,27 @@
     } else {
       showMsg(msg,json.message);
     }
+  });
+
+  // Toggle password visibility
+  const togglePasswordElements = document.querySelectorAll('.toggle-password');
+  console.log(`Se encontraron ${togglePasswordElements.length} elementos .toggle-password.`);
+
+  togglePasswordElements.forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      console.log('Click en el icono de alternar contraseña.');
+      const passwordField = toggle.parentElement.querySelector('input[type="password"], input[type="text"]');
+      
+      if (passwordField) {
+        console.log('Campo de contraseña encontrado:', passwordField);
+        const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordField.setAttribute('type', type);
+        toggle.classList.toggle('visible'); // Toggle a class for styling the icon
+        console.log('Tipo de campo de contraseña cambiado a:', type);
+      } else {
+        console.error('No se encontró el campo de contraseña asociado.');
+      }
+    });
   });
 
 })();

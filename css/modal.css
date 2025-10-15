@@ -172,11 +172,6 @@
     position: relative;
 }
 
-.password-field input[type="password"],
-.password-field input[type="text"] { /* Para cuando se muestre la contraseña */
-    padding-right: 3rem; /* Deja espacio para el botón */
-    width: calc(100% - 3rem); /* Ajusta el ancho del input */
-}
 
 .toggle-password {
     position: absolute;
@@ -195,6 +190,7 @@
     justify-content: center;
     border-radius: 50%;
     transition: all 0.2s ease;
+    z-index: 10; /* Asegura que el botón esté por encima del input */
 }
 
 .toggle-password:hover {
@@ -203,8 +199,13 @@
 }
 
 .toggle-password::before {
-    content: '👁️'; /* Icono de ojo */
+    content: 'visibility'; /* Icono de ojo */
+    font-family: 'Material Symbols Outlined'; /* Usar Material Icons */
     font-size: 1.2rem;
+}
+
+.toggle-password.visible::before {
+    content: 'visibility_off'; /* Icono de ojo tachado cuando la contraseña es visible */
 }
 
 /* Animaciones */

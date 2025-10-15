@@ -16,7 +16,7 @@
         <div class="field password-field">
           <label>Contraseña</label>
           <input type="password" name="password" required>
-          <button type="button" class="toggle-password" aria-label="Mostrar/Ocultar contraseña"></button>
+          <i class="toggle-password" aria-label="Mostrar/Ocultar contraseña"></i>
         </div>
         <div class="field"><label><input type="checkbox" name="remember"> Recordarme</label></div>
         <div id="loginMsg" class="auth-msg" aria-live="polite"></div>
@@ -32,7 +32,7 @@
         <div class="field password-field">
           <label>Contraseña</label>
           <input type="password" name="password" required minlength="8">
-          <button type="button" class="toggle-password" aria-label="Mostrar/Ocultar contraseña"></button>
+          <i class="toggle-password" aria-label="Mostrar/Ocultar contraseña"></i>
         </div>
         <div class="field"><label>Confirmar contraseña</label><input type="password" name="password_confirm" required></div>
         <div id="registerMsg" class="auth-msg" aria-live="polite"></div>
