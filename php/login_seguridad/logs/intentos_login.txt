@@ -30,3 +30,6 @@
 2025-10-15 20:49:49 - IP: ::1 - Email: fff - Estado: FALLIDO
 2025-10-15 20:50:31 - IP: ::1 - Email: fffffff - Estado: EXITOSO
 2025-10-15 21:15:40 - IP: ::1 - Email: fffffff - Estado: EXITOSO
+2025-10-15 21:21:41 - IP: ::1 - Email: Luz - Estado: FALLIDO
+2025-10-15 21:23:12 - IP: ::1 - Email: luz@idoneoweb.es - Estado: FALLIDO
+2025-10-15 21:29:12 - IP: ::1 - Email: Luz - Estado: EXITOSO
