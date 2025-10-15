@@ -167,6 +167,46 @@
     border: 1px solid #fecaca;
 }
 
+/* Estilos para el campo de contraseña con el botón de "ojo" */
+.password-field {
+    position: relative;
+}
+
+.password-field input[type="password"],
+.password-field input[type="text"] { /* Para cuando se muestre la contraseña */
+    padding-right: 3rem; /* Deja espacio para el botón */
+    width: calc(100% - 3rem); /* Ajusta el ancho del input */
+}
+
+.toggle-password {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(25%); /* Ajusta la posición vertical */
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #6b7280;
+    font-size: 1rem;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.toggle-password:hover {
+    background: #f3f4f6;
+    color: #374151;
+}
+
+.toggle-password::before {
+    content: '👁️'; /* Icono de ojo */
+    font-size: 1.2rem;
+}
+
 /* Animaciones */
 @keyframes fadeIn {
     from { opacity: 0; }

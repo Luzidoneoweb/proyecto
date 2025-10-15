@@ -10,7 +10,22 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*Crear administrador*/;
+INSERT INTO `users` (`id`, `username`, `email`, `password`, `is_admin`)
+VALUES (
+  1,
+  'luz',
+  'luz@idoneoweb.es',
+  '$2y$10$z2DC0CqDd7aQucJS8/kZ1OZ1nMd8Pq3hI8YfT8GOKD4VErU7H2cEu',
+  1
+)
+-- Contraseña: Holamundo25__
+ON DUPLICATE KEY UPDATE
+  `username` = VALUES(`username`),
+  `email` = VALUES(`email`),
+  `password` = VALUES(`password`),
+  `is_admin` = VALUES(`is_admin`);
+
 
 --
 -- Base de datos: `proyecto`

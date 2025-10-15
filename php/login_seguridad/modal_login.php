@@ -13,7 +13,11 @@
     <div id="loginView" class="auth-view">
       <form id="loginForm" autocomplete="on" novalidate>
         <div class="field"><label>Email</label><input type="email" name="email" required></div>
-        <div class="field"><label>Contraseña</label><input type="password" name="password" required></div>
+        <div class="field password-field">
+          <label>Contraseña</label>
+          <input type="password" name="password" required>
+          <button type="button" class="toggle-password" aria-label="Mostrar/Ocultar contraseña"></button>
+        </div>
         <div class="field"><label><input type="checkbox" name="remember"> Recordarme</label></div>
         <div id="loginMsg" class="auth-msg" aria-live="polite"></div>
         <button type="submit" class="auth-btn">Entrar</button>
@@ -25,7 +29,11 @@
       
         <div class="field"><label>Nombre de usuario</label><input type="text" name="username" required minlength="2" maxlength="50"></div>
         <div class="field"><label>Email</label><input type="email" name="email" required></div>
-        <div class="field"><label>Contraseña</label><input type="password" name="password" required minlength="8"></div>
+        <div class="field password-field">
+          <label>Contraseña</label>
+          <input type="password" name="password" required minlength="8">
+          <button type="button" class="toggle-password" aria-label="Mostrar/Ocultar contraseña"></button>
+        </div>
         <div class="field"><label>Confirmar contraseña</label><input type="password" name="password_confirm" required></div>
         <div id="registerMsg" class="auth-msg" aria-live="polite"></div>
         <button type="submit" class="auth-btn">Crear cuenta</button>
