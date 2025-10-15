@@ -3,8 +3,7 @@
         
         // Verificar estado de sesión al cargar la página
         document.addEventListener('DOMContentLoaded', function() {
-            // verificarEstadoSesion(); // Comentado temporalmente para depuración
-            console.log('DOMContentLoaded disparado en global.js. verificarEstadoSesion() comentado.');
+            verificarEstadoSesion();
         });
         
         // Elementos del DOM
