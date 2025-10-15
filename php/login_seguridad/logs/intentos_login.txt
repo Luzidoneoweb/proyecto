@@ -25,3 +25,8 @@
 2025-10-15 20:21:49 - IP: ::1 - Email: Luz S.M - Estado: EXITOSO
 2025-10-15 20:22:25 - IP: ::1 - Email: piknte@gmail.com - Estado: EXITOSO
 2025-10-15 20:26:30 - IP: ::1 - Email: Luz S.M - Estado: EXITOSO
+2025-10-15 20:48:24 - IP: ::1 - Email: Lucas - Estado: FALLIDO
+2025-10-15 20:48:46 - IP: ::1 - Email: Luz S.M - Estado: EXITOSO
+2025-10-15 20:49:49 - IP: ::1 - Email: fff - Estado: FALLIDO
+2025-10-15 20:50:31 - IP: ::1 - Email: fffffff - Estado: EXITOSO
+2025-10-15 21:15:40 - IP: ::1 - Email: fffffff - Estado: EXITOSO

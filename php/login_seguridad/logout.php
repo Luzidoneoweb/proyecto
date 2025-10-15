@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once 'seguridad.php'; // Incluir funciones de seguridad
 header('Content-Type: application/json; charset=utf-8');
 
 // Limpiar todas las variables de sesión
@@ -16,6 +16,9 @@ if (ini_get("session.use_cookies")) {
 
 // Destruir la sesión
 session_destroy();
+
+// Eliminar la cookie de "recordarme" si existe
+delete_remember_cookie();
 
 // Devolver respuesta JSON
 echo json_encode([

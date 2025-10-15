@@ -28,11 +28,23 @@
                         document.querySelector('.nombre-usuario').textContent = data.username;
                     }
                 } else {
-                    usuarioLogueado = false;
-                    mostrarInterfazNoLogueada();
+                    // Si no hay sesión activa, intentar auto-login
+                    const autoLoginResponse = await fetch('php/login_seguridad/auto_login.php');
+                    const autoLoginData = await autoLoginResponse.json();
+
+                    if (autoLoginData.logged_in) {
+                        usuarioLogueado = true;
+                        mostrarInterfazLogueada();
+                        if (autoLoginData.username) {
+                            document.querySelector('.nombre-usuario').textContent = autoLoginData.username;
+                        }
+                    } else {
+                        usuarioLogueado = false;
+                        mostrarInterfazNoLogueada();
+                    }
                 }
             } catch (error) {
-                console.error('Error verificando sesión:', error);
+                console.error('Error verificando sesión o auto-login:', error);
                 usuarioLogueado = false;
                 mostrarInterfazNoLogueada();
             }
