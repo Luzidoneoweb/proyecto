@@ -46,16 +46,14 @@
 
     if(json.success){
       showMsg(msg, json.message, true);
-      setTimeout(() => {
-        // Cerrar modal
-        modal.style.display = 'none';
-        // Actualizar UI
-        if (typeof verificarEstadoSesion === 'function') {
-          verificarEstadoSesion();
-        } else {
-          location.reload();
-        }
-      }, 800);
+      // Cerrar modal
+      modal.style.display = 'none';
+      // Actualizar UI
+      if (typeof verificarEstadoSesion === 'function') {
+        verificarEstadoSesion();
+      } else {
+        location.reload();
+      }
     } else {
       showMsg(msg, json.message);
     }

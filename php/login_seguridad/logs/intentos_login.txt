@@ -36,3 +36,7 @@
 2025-10-16 20:10:03 - IP: ::1 - Email: Luz S.M - Estado: FALLIDO
 2025-10-16 20:10:13 - IP: ::1 - Email: Luz S.M - Estado: EXITOSO
 2025-10-16 20:10:43 - IP: ::1 - Email: Luz - Estado: EXITOSO
+2025-10-16 20:21:42 - IP: ::1 - Email: Luz S.M - Estado: FALLIDO
+2025-10-16 20:21:53 - IP: ::1 - Email: Luz S.M - Estado: EXITOSO
+2025-10-16 20:27:30 - IP: ::1 - Email: Luz S.M - Estado: FALLIDO
+2025-10-16 20:27:43 - IP: ::1 - Email: Luz S.M - Estado: EXITOSO

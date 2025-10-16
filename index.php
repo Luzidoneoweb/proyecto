@@ -14,12 +14,12 @@
     <header class="encabezado-principal">
         <div class="contenedor-encabezado">
             <!-- Logo de la aplicación -->
-            <div class="logo">
+            <div class="logo ">
                 <img src="img/aprenderIngles.png" alt="Logo MiApp" class="imagen-logo">
                 <span class="texto-logo">MiProyeo</span>
             </div>
             
-            <!-- Navegación principal - visible cuando no está logueado -->
+            <!--  Navegación principal - visible cuando no está logueado -->
             <nav class="navegacion-principal" id="navegacionPrincipal">
                 <ul class="lista-menu">
                     <li><a href="#inicio" class="enlace-menu">Inicio</a></li>
