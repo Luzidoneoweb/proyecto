@@ -30,8 +30,7 @@
                     <h2>Mi Progreso</h2>
                 </div>
                 <div class="contenido-panel">
-                    <p>Aquí verás estadísticas de tu aprendizaje.</p>
-                    <!-- Contenido de progreso se agregará dinámicamente -->
+                    <?php include 'pestanas/progreso.php'; ?>
                 </div>
             </div>
 
