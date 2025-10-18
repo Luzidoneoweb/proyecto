@@ -77,7 +77,7 @@
                 </div>
             </section>
 
-            <!-- Sección de características -->
+            <!--  Sección de características -->
             <section class="seccion-caracteristicas" id="caracteristicas">
                 <div class="contenedor-caracteristicas">
                     <h2 class="titulo-seccion">¿Cómo funciona?</h2>
