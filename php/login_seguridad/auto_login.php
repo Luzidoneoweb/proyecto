@@ -1,8 +1,5 @@
 <?php
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> login
+
 // auto_login.php
 require_once 'seguridad.php';
 header('Content-Type: application/json; charset=utf-8');
