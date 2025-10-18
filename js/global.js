@@ -1,4 +1,4 @@
- // Variables globales
+// Variables globales
         let usuarioLogueado = false;
         
         // Verificar estado de sesión al cargar la página
@@ -15,6 +15,7 @@
         const contenidoAplicacion = document.getElementById('contenidoAplicacion');
         const botonMenuMovil = document.getElementById('botonMenuMovil');
         
+<<<<<<< HEAD
         // Función para verificar el estado de la sesión
         async function verificarEstadoSesion() {
             try {
@@ -67,6 +68,9 @@
         }
         
         // Función para alternar el estado de login (mantener para compatibilidad)
+=======
+        // Función para alternar el estado de login (simulado)
+>>>>>>> pestana
         function alternarLogin() {
             usuarioLogueado = !usuarioLogueado;
             
@@ -74,6 +78,7 @@
                 mostrarInterfazLogueada();
             } else {
                 mostrarInterfazNoLogueada();
+<<<<<<< HEAD
             }
         }
         
@@ -96,7 +101,25 @@
                 // Aún así, intentar cerrar la sesión localmente
                 usuarioLogueado = false;
                 mostrarInterfazNoLogueada();
+=======
+>>>>>>> pestana
             }
+        }
+        
+        // Función para mostrar interfaz de usuario logueado
+        function mostrarInterfazLogueada() {
+            navegacionPrincipal.classList.add('oculto');
+            navegacionUsuario.classList.remove('oculto');
+            paginaInicio.classList.add('oculto');
+            contenidoAplicacion.classList.remove('oculto');
+        }
+        
+        // Función para mostrar interfaz de usuario no logueado
+        function mostrarInterfazNoLogueada() {
+            navegacionPrincipal.classList.remove('oculto');
+            navegacionUsuario.classList.add('oculto');
+            paginaInicio.classList.remove('oculto');
+            contenidoAplicacion.classList.add('oculto');
         }
         
         // Función para cambiar entre pestañas
@@ -116,6 +139,11 @@
             
             // Mostrar el panel correspondiente
             document.getElementById(`panel${nombrePestana.charAt(0).toUpperCase() + nombrePestana.slice(1)}`).classList.add('activo');
+
+            // Cerrar el menú móvil después de seleccionar una pestaña si está abierto
+            if (navegacionUsuario && navegacionUsuario.classList.contains('menu-abierto')) {
+                navegacionUsuario.classList.remove('menu-abierto');
+            }
         }
         
         // Event listeners
@@ -123,7 +151,11 @@
             botonLogin.addEventListener('click', alternarLogin);
         }
         if (botonCerrarSesion) {
+<<<<<<< HEAD
             botonCerrarSesion.addEventListener('click', cerrarSesion);
+=======
+            botonCerrarSesion.addEventListener('click', alternarLogin); // Simular cierre de sesión
+>>>>>>> pestana
         }
         
         // Event listeners para las pestañas
@@ -135,9 +167,15 @@
         });
         
         // Menú móvil
-        botonMenuMovil.addEventListener('click', () => {
-            navegacionPrincipal.classList.toggle('menu-abierto');
-        });
+        if (botonMenuMovil) {
+            botonMenuMovil.addEventListener('click', () => {
+                if (usuarioLogueado) {
+                    navegacionUsuario.classList.toggle('menu-abierto');
+                } else {
+                    navegacionPrincipal.classList.toggle('menu-abierto');
+                }
+            });
+        }
         
         // Navegación suave
         document.querySelectorAll('.enlace-menu').forEach(enlace => {
@@ -148,5 +186,22 @@
                 if (elemento) {
                     elemento.scrollIntoView({ behavior: 'smooth' });
                 }
+                // Cerrar el menú principal después de seleccionar un enlace si está abierto
+                if (navegacionPrincipal.classList.contains('menu-abierto')) {
+                    navegacionPrincipal.classList.remove('menu-abierto');
+                }
             });
         });
+<<<<<<< HEAD
+=======
+
+        // Inicializar estado de la interfaz al cargar la página (simulado)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Determinar el estado inicial de usuarioLogueado basado en la visibilidad de navegacionUsuario
+            if (!navegacionUsuario.classList.contains('oculto')) {
+                usuarioLogueado = true;
+            } else {
+                usuarioLogueado = false;
+            }
+        });
+>>>>>>> pestana

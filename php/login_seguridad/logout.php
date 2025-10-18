@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 require_once 'seguridad.php'; // Incluir funciones de seguridad
 header('Content-Type: application/json; charset=utf-8');
 
@@ -26,3 +27,8 @@ echo json_encode([
     'message' => 'Sesión cerrada correctamente'
 ]);
 exit;
+=======
+header('Content-Type: application/json');
+echo json_encode(['success' => true, 'message' => 'Sesión cerrada correctamente.']);
+?>
+>>>>>>> pestana

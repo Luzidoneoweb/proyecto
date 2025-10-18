@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 // auto_login.php
 require_once 'seguridad.php';
 header('Content-Type: application/json; charset=utf-8');
@@ -101,4 +102,8 @@ if (isset($_COOKIE['remember_me'])) {
 }
 
 echo json_encode($response);
+=======
+header('Content-Type: application/json');
+echo json_encode(['logged_in' => false]);
+>>>>>>> pestana
 ?>
