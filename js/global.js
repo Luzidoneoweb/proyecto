@@ -16,6 +16,9 @@
         const botonMenuMovil = document.getElementById('botonMenuMovil');
         
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> login
         // Función para verificar el estado de la sesión
         async function verificarEstadoSesion() {
             try {
@@ -68,9 +71,12 @@
         }
         
         // Función para alternar el estado de login (mantener para compatibilidad)
+<<<<<<< HEAD
 =======
         // Función para alternar el estado de login (simulado)
 >>>>>>> pestana
+=======
+>>>>>>> login
         function alternarLogin() {
             usuarioLogueado = !usuarioLogueado;
             
@@ -79,6 +85,31 @@
             } else {
                 mostrarInterfazNoLogueada();
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+            }
+        }
+        
+        // Función para cerrar sesión
+        async function cerrarSesion() {
+            try {
+                const response = await fetch('php/login_seguridad/logout.php');
+                const data = await response.json();
+                
+                if (data.success) {
+                    usuarioLogueado = false;
+                    mostrarInterfazNoLogueada();
+                    // Opcional: mostrar mensaje de confirmación
+                    console.log(data.message);
+                } else {
+                    console.error('Error cerrando sesión:', data.message);
+                }
+            } catch (error) {
+                console.error('Error cerrando sesión:', error);
+                // Aún así, intentar cerrar la sesión localmente
+                usuarioLogueado = false;
+                mostrarInterfazNoLogueada();
+>>>>>>> login
             }
         }
         
@@ -152,10 +183,14 @@
         }
         if (botonCerrarSesion) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             botonCerrarSesion.addEventListener('click', cerrarSesion);
 =======
             botonCerrarSesion.addEventListener('click', alternarLogin); // Simular cierre de sesión
 >>>>>>> pestana
+=======
+            botonCerrarSesion.addEventListener('click', cerrarSesion);
+>>>>>>> login
         }
         
         // Event listeners para las pestañas
@@ -193,6 +228,7 @@
             });
         });
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
         // Inicializar estado de la interfaz al cargar la página (simulado)
@@ -205,3 +241,5 @@
             }
         });
 >>>>>>> pestana
+=======
+>>>>>>> login

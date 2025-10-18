@@ -40,10 +40,14 @@
                 </div>
                 <div class="contenido-panel">
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <?php include 'pestanas/progreso.php'; ?>
 =======
                     <?php include $_SERVER['DOCUMENT_ROOT'] . '/proyecto/php/pestanas/practicas.php'; ?>
 >>>>>>> pestana
+=======
+                    <?php include 'pestanas/progreso.php'; ?>
+>>>>>>> login
                 </div>
             </div>
 

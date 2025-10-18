@@ -1,5 +1,8 @@
 <?php
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> login
 // seguridad.php - Funciones de seguridad para la aplicación
 session_start();
 
@@ -119,8 +122,11 @@ function verificar_intentos_fallidos($email, $limite = 5, $tiempo_limite = 300) 
     
     return $intentos_recientes >= $limite;
 }
+<<<<<<< HEAD
 =======
 // Archivo de seguridad básico para evitar errores de inclusión.
 // La lógica de seguridad real debería implementarse aquí.
 >>>>>>> pestana
+=======
+>>>>>>> login
 ?>
