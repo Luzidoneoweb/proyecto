@@ -1,14 +1,23 @@
  <!-- Contenido de la aplicación - visible cuando está logueado -->
         <section class="contenido-aplicacion oculto" id="contenidoAplicacion">
+            <!-- Pestaña: Progreso -->
+            <div class="panel-pestana activo" id="panelProgreso">
+                <div class="encabezado-panel">
+                    <h2>Mi Progreso</h2>
+                </div>
+                <div class="contenido-panel">
+                    <?php include $_SERVER['DOCUMENT_ROOT'] . '/proyecto/php/pestanas/progreso.php'; ?>
+                </div>
+            </div>
+
             <!-- Pestaña: Mis Textos -->
-            <div class="panel-pestana activo" id="panelTextos">
+            <div class="panel-pestana" id="panelTextos">
                 <div class="encabezado-panel">
                     <h2>Mis Textos</h2>
                     <button class="boton-agregar">Agregar Texto</button>
                 </div>
                 <div class="contenido-panel">
-                    <p>Aquí aparecerán tus textos guardados para practicar.</p>
-                    <!-- Contenido de textos se agregará dinámicamente -->
+                    <?php include $_SERVER['DOCUMENT_ROOT'] . '/proyecto/php/pestanas/textos.php'; ?>
                 </div>
             </div>
 
@@ -19,19 +28,18 @@
                     <button class="boton-practicar">Practicar</button>
                 </div>
                 <div class="contenido-panel">
-                    <p>Aquí aparecerán las palabras que has traducido.</p>
-                    <!-- Contenido de vocabulario se agregará dinámicamente -->
+                    <?php include $_SERVER['DOCUMENT_ROOT'] . '/proyecto/php/pestanas/vocabulario.php'; ?>
                 </div>
             </div>
 
-            <!-- Pestaña: Progreso -->
-            <div class="panel-pestana" id="panelProgreso">
+            <!-- Pestaña: Prácticas -->
+            <div class="panel-pestana" id="panelPracticas">
                 <div class="encabezado-panel">
-                    <h2>Mi Progreso</h2>
+                    <h2>Prácticas</h2>
+                    <button class="boton-practicar">Iniciar Práctica</button>
                 </div>
                 <div class="contenido-panel">
-                    <p>Aquí verás estadísticas de tu aprendizaje.</p>
-                    <!-- Contenido de progreso se agregará dinámicamente -->
+                    <?php include $_SERVER['DOCUMENT_ROOT'] . '/proyecto/php/pestanas/practicas.php'; ?>
                 </div>
             </div>
 
@@ -42,8 +50,7 @@
                     <input type="search" placeholder="Buscar textos..." class="buscador-biblioteca">
                 </div>
                 <div class="contenido-panel">
-                    <p>Explora textos disponibles para leer y aprender.</p>
-                    <!-- Contenido de biblioteca se agregará dinámicamente -->
+                    <?php include $_SERVER['DOCUMENT_ROOT'] . '/proyecto/php/pestanas/biblioteca.php'; ?>
                 </div>
             </div>
 
@@ -72,6 +79,7 @@
                         </label>
                     </div>
                 </div>
+            </div>
             </div>
         </section>
     </main>
