@@ -5,19 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MiApp - Aprende idiomas leyendo</title>
     <link rel="stylesheet" href="css/estilo.css">
-
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
+    <?php require_once 'php/login_seguridad/seguridad.php'; ?>
     <!-- Encabezado principal de la aplicación -->
     <header class="encabezado-principal">
         <div class="contenedor-encabezado">
             <!-- Logo de la aplicación -->
-            <div class="logo">
-                <img src="logo.png" alt="Logo MiApp" class="imagen-logo">
+            <div class="logo ">
+                <img src="img/aprenderIngles.png" alt="Logo MiApp" class="imagen-logo">
                 <span class="texto-logo">MiProyeo</span>
             </div>
             
-            <!-- Navegación principal - visible cuando no está logueado -->
+            <!--  Navegación principal - visible cuando no está logueado -->
             <nav class="navegacion-principal" id="navegacionPrincipal">
                 <ul class="lista-menu">
                     <li><a href="#inicio" class="enlace-menu">Inicio</a></li>
@@ -170,9 +172,12 @@
             </div>
         </div>
     </footer>
+    
+    <?php include 'php/login_seguridad/modal_login.php'; ?>
 
     <!-- JavaScript para funcionalidad básica -->
     <script src="js/global.js"></script>
+    <script src="js/login_registos/auth_auntentif.js"></script>
+    
 </body>
 </html>
-
