@@ -1,4 +1,4 @@
- // Variables globales
+// Variables globales
         let usuarioLogueado = false;
         
         // Verificar estado de sesión al cargar la página
@@ -15,37 +15,13 @@
         const contenidoAplicacion = document.getElementById('contenidoAplicacion');
         const botonMenuMovil = document.getElementById('botonMenuMovil');
         
-        // Función para verificar el estado de la sesión
-        async function verificarEstadoSesion() {
-            try {
-                const response = await fetch('php/login_seguridad/verificar_sesion.php');
-                const data = await response.json();
-                
-                if (data.logged_in) {
-                    usuarioLogueado = true;
-                    mostrarInterfazLogueada();
-                    if (data.username) {
-                        document.querySelector('.nombre-usuario').textContent = data.username;
-                    }
-                } else {
-                    // Si no hay sesión activa, intentar auto-login
-                    const autoLoginResponse = await fetch('php/login_seguridad/auto_login.php');
-                    const autoLoginData = await autoLoginResponse.json();
-
-                    if (autoLoginData.logged_in) {
-                        usuarioLogueado = true;
-                        mostrarInterfazLogueada();
-                        if (autoLoginData.username) {
-                            document.querySelector('.nombre-usuario').textContent = autoLoginData.username;
-                        }
-                    } else {
-                        usuarioLogueado = false;
-                        mostrarInterfazNoLogueada();
-                    }
-                }
-            } catch (error) {
-                console.error('Error verificando sesión o auto-login:', error);
-                usuarioLogueado = false;
+        // Función para alternar el estado de login (simulado)
+        function alternarLogin() {
+            usuarioLogueado = !usuarioLogueado;
+            
+            if (usuarioLogueado) {
+                mostrarInterfazLogueada();
+            } else {
                 mostrarInterfazNoLogueada();
             }
         }
@@ -66,39 +42,6 @@
             contenidoAplicacion.classList.add('oculto');
         }
         
-        // Función para alternar el estado de login (mantener para compatibilidad)
-        function alternarLogin() {
-            usuarioLogueado = !usuarioLogueado;
-            
-            if (usuarioLogueado) {
-                mostrarInterfazLogueada();
-            } else {
-                mostrarInterfazNoLogueada();
-            }
-        }
-        
-        // Función para cerrar sesión
-        async function cerrarSesion() {
-            try {
-                const response = await fetch('php/login_seguridad/logout.php');
-                const data = await response.json();
-                
-                if (data.success) {
-                    usuarioLogueado = false;
-                    mostrarInterfazNoLogueada();
-                    // Opcional: mostrar mensaje de confirmación
-                    console.log(data.message);
-                } else {
-                    console.error('Error cerrando sesión:', data.message);
-                }
-            } catch (error) {
-                console.error('Error cerrando sesión:', error);
-                // Aún así, intentar cerrar la sesión localmente
-                usuarioLogueado = false;
-                mostrarInterfazNoLogueada();
-            }
-        }
-        
         // Función para cambiar entre pestañas
         function cambiarPestana(nombrePestana) {
             // Remover clase activa de todas las pestañas
@@ -116,6 +59,11 @@
             
             // Mostrar el panel correspondiente
             document.getElementById(`panel${nombrePestana.charAt(0).toUpperCase() + nombrePestana.slice(1)}`).classList.add('activo');
+
+            // Cerrar el menú móvil después de seleccionar una pestaña si está abierto
+            if (navegacionUsuario && navegacionUsuario.classList.contains('menu-abierto')) {
+                navegacionUsuario.classList.remove('menu-abierto');
+            }
         }
         
         // Event listeners
@@ -123,7 +71,7 @@
             botonLogin.addEventListener('click', alternarLogin);
         }
         if (botonCerrarSesion) {
-            botonCerrarSesion.addEventListener('click', cerrarSesion);
+            botonCerrarSesion.addEventListener('click', alternarLogin); // Simular cierre de sesión
         }
         
         // Event listeners para las pestañas
@@ -135,9 +83,15 @@
         });
         
         // Menú móvil
-        botonMenuMovil.addEventListener('click', () => {
-            navegacionPrincipal.classList.toggle('menu-abierto');
-        });
+        if (botonMenuMovil) {
+            botonMenuMovil.addEventListener('click', () => {
+                if (usuarioLogueado) {
+                    navegacionUsuario.classList.toggle('menu-abierto');
+                } else {
+                    navegacionPrincipal.classList.toggle('menu-abierto');
+                }
+            });
+        }
         
         // Navegación suave
         document.querySelectorAll('.enlace-menu').forEach(enlace => {
@@ -148,5 +102,19 @@
                 if (elemento) {
                     elemento.scrollIntoView({ behavior: 'smooth' });
                 }
+                // Cerrar el menú principal después de seleccionar un enlace si está abierto
+                if (navegacionPrincipal.classList.contains('menu-abierto')) {
+                    navegacionPrincipal.classList.remove('menu-abierto');
+                }
             });
+        });
+
+        // Inicializar estado de la interfaz al cargar la página (simulado)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Determinar el estado inicial de usuarioLogueado basado en la visibilidad de navegacionUsuario
+            if (!navegacionUsuario.classList.contains('oculto')) {
+                usuarioLogueado = true;
+            } else {
+                usuarioLogueado = false;
+            }
         });
