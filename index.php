@@ -46,7 +46,7 @@
             <section class="seccion-hero">
                 <div class="contenedor-hero">
                     <div class="contenido-hero">
-                        <h1 class="titulo-principal">Aprende idiomas leyendo lo que te gusta</h1>
+                        <h1 class="titulo-principal">aAprende idiomas leyendo lo que te gusta</h1>
                         <p class="subtitulo">Haz clic en las palabras para traducirlas y practica con tarjetas de memoria</p>
                         <button class="boton-comenzar">Comenzar a Aprender</button>
                     </div>

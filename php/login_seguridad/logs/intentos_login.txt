@@ -44,3 +44,5 @@
 2025-10-16 20:44:50 - IP: ::1 - Email: Luz - Estado: FALLIDO
 2025-10-16 20:45:01 - IP: ::1 - Email: Luz - Estado: EXITOSO
 2025-10-17 19:15:02 - IP: ::1 - Email: Luz S.M - Estado: EXITOSO
+2025-10-19 16:17:44 - IP: ::1 - Email: Luz S.M - Estado: EXITOSO
+2025-10-19 16:18:12 - IP: ::1 - Email: Luz S.M - Estado: EXITOSO
