@@ -159,7 +159,9 @@
             </section>
         </section>
 
-       <?php include 'php/conten_logueado.php'; ?>
+        <section id="contenidoLogueado" class="oculto">
+            <?php include 'php/conten_logueado.php'; ?>
+        </section>
 
     <!-- Pie de página -->
     <footer class="pie-pagina">

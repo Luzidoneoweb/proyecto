@@ -8,7 +8,14 @@
   const views = document.querySelectorAll('.auth-view');
 
   // abrir/cerrar modal
-  btnOpen.addEventListener('click', () => modal.style.display = 'block');
+  btnOpen.addEventListener('click', () => {
+    modal.style.display = 'block';
+    // Rellenar el campo de email/username si hay un identificador recordado
+    if (window.rememberedIdentifier) {
+      document.querySelector('#loginView input[name="identifier"]').value = window.rememberedIdentifier;
+      document.querySelector('#loginView input[name="password"]').focus(); // Poner el foco en la contraseña
+    }
+  });
   btnClose.addEventListener('click', () => modal.style.display = 'none');
   backdrop.addEventListener('click', () => modal.style.display = 'none');
 
@@ -46,11 +53,10 @@
 
     if(json.success){
       showMsg(msg, json.message, true);
-      // Cerrar modal
-      modal.style.display = 'none';
-      // Actualizar UI
+      // Actualizar UI y luego cerrar modal
       if (typeof verificarEstadoSesion === 'function') {
-        verificarEstadoSesion();
+        await verificarEstadoSesion(); // Esperar a que la UI se actualice
+        modal.style.display = 'none'; // Cerrar modal después de la actualización
       } else {
         location.reload();
       }

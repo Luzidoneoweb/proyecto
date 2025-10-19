@@ -1,5 +1,6 @@
- // Variables globales
+        // Variables globales
         let usuarioLogueado = false;
+        let rememberedIdentifier = null; // Variable para almacenar el identificador recordado
         
         // Verificar estado de sesión al cargar la página
         document.addEventListener('DOMContentLoaded', function() {
@@ -12,7 +13,7 @@
         const navegacionPrincipal = document.getElementById('navegacionPrincipal');
         const navegacionUsuario = document.getElementById('navegacionUsuario');
         const paginaInicio = document.getElementById('paginaInicio');
-        const contenidoAplicacion = document.getElementById('contenidoAplicacion');
+        const contenidoAplicacion = document.getElementById('contenidoLogueado'); // Apunta al nuevo contenedor
         const botonMenuMovil = document.getElementById('botonMenuMovil');
         
         // Función para verificar el estado de la sesión
@@ -28,20 +29,18 @@
                         document.querySelector('.nombre-usuario').textContent = data.username;
                     }
                 } else {
-                    // Si no hay sesión activa, intentar auto-login
+                    // Si no hay sesión activa, intentar obtener el identificador recordado
                     const autoLoginResponse = await fetch('php/login_seguridad/auto_login.php');
                     const autoLoginData = await autoLoginResponse.json();
 
-                    if (autoLoginData.logged_in) {
-                        usuarioLogueado = true;
-                        mostrarInterfazLogueada();
-                        if (autoLoginData.username) {
-                            document.querySelector('.nombre-usuario').textContent = autoLoginData.username;
-                        }
+                    if (autoLoginData.remembered_identifier) {
+                        rememberedIdentifier = autoLoginData.remembered_identifier;
+                        console.log('Identificador recordado:', rememberedIdentifier);
                     } else {
-                        usuarioLogueado = false;
-                        mostrarInterfazNoLogueada();
+                        rememberedIdentifier = null;
                     }
+                    usuarioLogueado = false;
+                    mostrarInterfazNoLogueada();
                 }
             } catch (error) {
                 console.error('Error verificando sesión o auto-login:', error);
@@ -66,17 +65,6 @@
             contenidoAplicacion.classList.add('oculto');
         }
         
-        // Función para alternar el estado de login (mantener para compatibilidad)
-        function alternarLogin() {
-            usuarioLogueado = !usuarioLogueado;
-            
-            if (usuarioLogueado) {
-                mostrarInterfazLogueada();
-            } else {
-                mostrarInterfazNoLogueada();
-            }
-        }
-        
         // Función para cerrar sesión
         async function cerrarSesion() {
             try {
@@ -85,6 +73,7 @@
                 
                 if (data.success) {
                     usuarioLogueado = false;
+                    rememberedIdentifier = null; // Limpiar el identificador recordado al cerrar sesión
                     mostrarInterfazNoLogueada();
                     // Opcional: mostrar mensaje de confirmación
                     console.log(data.message);
@@ -95,6 +84,7 @@
                 console.error('Error cerrando sesión:', error);
                 // Aún así, intentar cerrar la sesión localmente
                 usuarioLogueado = false;
+                rememberedIdentifier = null;
                 mostrarInterfazNoLogueada();
             }
         }
@@ -119,9 +109,6 @@
         }
         
         // Event listeners
-        if (botonLogin) {
-            botonLogin.addEventListener('click', alternarLogin);
-        }
         if (botonCerrarSesion) {
             botonCerrarSesion.addEventListener('click', cerrarSesion);
         }

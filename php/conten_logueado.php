@@ -1,5 +1,5 @@
  <!-- Contenido de la aplicación - visible cuando está logueado -->
-        <section class="contenido-aplicacion oculto" id="contenidoAplicacion">
+        <section class="contenido-aplicacion" id="contenidoAplicacionInterna">
             <!-- Pestaña: Mis Textos -->
             <div class="panel-pestana activo" id="panelTextos">
                 <div class="encabezado-panel">

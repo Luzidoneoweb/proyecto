@@ -61,29 +61,9 @@ if (isset($_COOKIE['remember_me'])) {
             $delete_stmt->close();
             delete_remember_cookie();
         } elseif (password_verify($validator, $row['hashed_validator'])) {
-            // Token válido, iniciar sesión y rotar el token
-            session_regenerate_id(true);
-            $_SESSION['user_id'] = $row['user_id'];
-            $_SESSION['username'] = $row['username'];
-            $_SESSION['email'] = $row['email'];
-
-            // Rotar el token: generar uno nuevo, actualizar DB y cookie
-            $new_token_pair = generate_remember_token_pair();
-            $new_selector = $new_token_pair['selector'];
-            $new_validator = $new_token_pair['validator'];
-            $new_hashed_validator = hash_validator($new_validator);
-            $new_expires_at = date('Y-m-d H:i:s', strtotime('+30 days'));
-
-            $update_stmt = $mysqli->prepare("UPDATE remember_tokens SET selector = ?, hashed_validator = ?, expires_at = ? WHERE user_id = ? AND selector = ?");
-            $update_stmt->bind_param("ssssi", $new_selector, $new_hashed_validator, $new_expires_at, $row['user_id'], $selector);
-            $update_stmt->execute();
-            $update_stmt->close();
-
-            set_remember_cookie($new_selector, $new_validator, $new_expires_at);
-
-            $response['logged_in'] = true;
-            $response['user_id'] = $row['user_id'];
-            $response['username'] = $row['username'];
+            // Token válido, solo devolver el identificador (email) sin iniciar sesión
+            $response['remembered_identifier'] = $row['email'];
+            // No se inicia sesión automáticamente aquí
         } else {
             // Validator no coincide, token inválido, eliminar de la DB y la cookie
             $delete_stmt = $mysqli->prepare("DELETE FROM remember_tokens WHERE selector = ?");
