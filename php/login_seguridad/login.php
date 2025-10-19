@@ -22,11 +22,6 @@ if(empty($identifier) || empty($password)){
     exit;
 }
 
-// Verificar intentos fallidos recientes
-if(verificar_intentos_fallidos($identifier)){
-    echo json_encode(['success'=>false,'message'=>'Demasiados intentos fallidos. Intenta más tarde.']); 
-    exit;
-}
 
 $mysqli = new mysqli($host, $user, $pass, $dbname);
 if($mysqli->connect_errno){ 
@@ -48,8 +43,6 @@ if($row = $res->fetch_assoc()){
         $_SESSION['username'] = $row['username'];
         $_SESSION['email'] = $row['email']; // Usar el email de la DB
         
-        // Registrar intento exitoso
-        registrar_intento_login($identifier, true);
 
         // Si el usuario marcó "Recordarme"
         $remember_me = isset($_POST['remember']) && $_POST['remember'] === 'on';
@@ -83,12 +76,10 @@ if($row = $res->fetch_assoc()){
         ]);
     } else {
         // Contraseña incorrecta
-        registrar_intento_login($identifier, false);
         echo json_encode(['success'=>false,'message'=>'Contraseña incorrecta']);
     }
 } else {
     // Usuario no encontrado
-    registrar_intento_login($identifier, false);
     echo json_encode(['success'=>false,'message'=>'Usuario no encontrado']);
 }
 
