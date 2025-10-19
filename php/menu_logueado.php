@@ -1,5 +1,5 @@
   <!-- Navegación de usuario - visible cuando está logueado -->
-            <nav class="navegacion-usuario oculto" id="navegacionUsuario">
+            <nav class="navegacion-usuario" id="navegacionUsuario">
                 <div class="pestanas-aplicacion">
                     <button class="pestana activa" data-pestana="textos">Mis Textos</button>
                     <button class="pestana" data-pestana="vocabulario">Vocabulario</button>

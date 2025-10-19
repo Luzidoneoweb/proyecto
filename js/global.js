@@ -15,6 +15,11 @@
         const paginaInicio = document.getElementById('paginaInicio');
         const contenidoAplicacion = document.getElementById('contenidoLogueado'); // Apunta al nuevo contenedor
         const botonMenuMovil = document.getElementById('botonMenuMovil');
+
+        // Event listener para el botón de cerrar sesión
+        if (botonCerrarSesion) {
+            botonCerrarSesion.addEventListener('click', cerrarSesion);
+        }
         
         // Función para verificar el estado de la sesión
         async function verificarEstadoSesion() {
@@ -106,11 +111,11 @@
             
             // Mostrar el panel correspondiente
             document.getElementById(`panel${nombrePestana.charAt(0).toUpperCase() + nombrePestana.slice(1)}`).classList.add('activo');
-        }
-        
-        // Event listeners
-        if (botonCerrarSesion) {
-            botonCerrarSesion.addEventListener('click', cerrarSesion);
+
+            // Cerrar el menú móvil después de seleccionar una pestaña si está abierto
+            if (navegacionUsuario && navegacionUsuario.classList.contains('menu-abierto')) {
+                navegacionUsuario.classList.remove('menu-abierto');
+            }
         }
         
         // Event listeners para las pestañas
@@ -122,9 +127,15 @@
         });
         
         // Menú móvil
-        botonMenuMovil.addEventListener('click', () => {
-            navegacionPrincipal.classList.toggle('menu-abierto');
-        });
+        if (botonMenuMovil) {
+            botonMenuMovil.addEventListener('click', () => {
+                if (usuarioLogueado) {
+                    navegacionUsuario.classList.toggle('menu-abierto');
+                } else {
+                    navegacionPrincipal.classList.toggle('menu-abierto');
+                }
+            });
+        }
         
         // Navegación suave
         document.querySelectorAll('.enlace-menu').forEach(enlace => {
@@ -134,6 +145,10 @@
                 const elemento = document.getElementById(destino);
                 if (elemento) {
                     elemento.scrollIntoView({ behavior: 'smooth' });
+                }
+                // Cerrar el menú principal después de seleccionar un enlace si está abierto
+                if (navegacionPrincipal.classList.contains('menu-abierto')) {
+                    navegacionPrincipal.classList.remove('menu-abierto');
                 }
             });
         });

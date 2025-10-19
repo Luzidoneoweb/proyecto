@@ -20,7 +20,7 @@
             </div>
             
             <!--  Navegación principal - visible cuando no está logueado -->
-            <nav class="navegacion-principal" id="navegacionPrincipal">
+            <nav class="navegacion-principal oculto" id="navegacionPrincipal">
                 <ul class="lista-menu">
                     <li><a href="#inicio" class="enlace-menu">Inicio</a></li>
                     <li><a href="#caracteristicas" class="enlace-menu">Características</a></li>
@@ -41,7 +41,7 @@
     <!-- Contenido principal de la aplicación -->
     <main class="contenido-principal">
         <!-- Página de inicio - visible cuando no está logueado -->
-        <section class="pagina-inicio" id="paginaInicio">
+        <section class="pagina-inicio oculto" id="paginaInicio">
             <!-- Sección hero principal -->
             <section class="seccion-hero">
                 <div class="contenedor-hero">
