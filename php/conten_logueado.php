@@ -12,7 +12,7 @@
 
             <!-- Pestaña: Mis Textos -->
             <div class="panel-pestana" id="panelTextos">
-                <div class="encabezado-panel">
+                <div class="encabezado gi-panel">
                     <h2>Mis Textos</h2>
                     <button class="boton-agregar">Agregar Texto</button>
                 </div>
