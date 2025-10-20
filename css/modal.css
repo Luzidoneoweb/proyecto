@@ -158,7 +158,7 @@
 
 .auth-msg.success {
     color: var(--color-secundario);
-    background: #f0fdf4;
+    background: #fdfbf0;
     border: 1px solid #f7f0bb;
 }
 
@@ -178,7 +178,7 @@
     position: absolute;
     right: 0.75rem;
     top: 50%;
-    transform: translateY(25%); /* Ajusta la posición vertical */
+    transform: translateY(-50%); /* Ajusta la posición vertical */
     background: none;
     border: none;
     cursor: pointer;
