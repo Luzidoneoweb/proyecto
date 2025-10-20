@@ -30,10 +30,12 @@
                 if (data.logged_in) {
                     usuarioLogueado = true;
                     mostrarInterfazLogueada();
-                    if (data.username) {
-                        document.querySelector('.nombre-usuario').textContent = data.username;
-                    }
-                } else {
+                if (data.username) {
+                    document.querySelector('.nombre-usuario').textContent = data.username;
+                }
+                // Activar la pestaña de Progreso al iniciar sesión
+                cambiarPestana('progreso');
+            } else {
                     // Si no hay sesión activa, intentar obtener el identificador recordado
                     const autoLoginResponse = await fetch('php/login_seguridad/auto_login.php');
                     const autoLoginData = await autoLoginResponse.json();
