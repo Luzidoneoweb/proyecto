@@ -1,3 +1,20 @@
+
+
+/* Ejemplo de aplicación */
+body {
+  background-color: var(--fondo-principal);
+  color: var(--texto-principal);
+}
+
+button {
+  background-color: var(--color-primario);
+  color: var(--fondo-principal);
+}
+
+button:hover {
+  background-color: var(--color-secundario);
+}
+
 /* ===== RESET Y CONFIGURACIÓN BASE ===== */
 * {
     margin: 0;
@@ -55,19 +72,26 @@ body {
     gap: 0.5rem;
     font-weight: 700;
     font-size: 1.5rem;
-    color: #059669;
+  --color-acento: #c57c29fc;
+  
 }
 
 .imagen-logo {
     width: 40px;
     height: 40px;
     border-radius: 8px;
-    background: linear-gradient(135deg, #059669, #10b981);
+    background: linear-gradient(135deg, #d7ad16, #b98610);
 }
 
 .texto-logo {
-    color: #059669;
+      margin: 0;
+    color: #ff8a00;
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 0.2rem;
+    text-shadow: 1px 1px 1px #334866;
 }
+
 
 /* ===== NAVEGACIÓN PRINCIPAL ===== */
 .navegacion-principal {
@@ -93,12 +117,13 @@ body {
 }
 
 .enlace-menu:hover {
-    color: #059669;
+   --color-primario: var(--color-acento);
+;
     background-color: #f0fdf4;
 }
 
 .boton-login {
-    background: #059669;
+    background: var(--color-primario);
     color: white;
     border: none;
     padding: 0.75rem 1.5rem;
@@ -109,7 +134,7 @@ body {
 }
 
 .boton-login:hover {
-    background: #047857;
+    background: var(--color-acento);
     transform: translateY(-1px);
 }
 
@@ -145,7 +170,7 @@ body {
 }
 
 .pestana.activa {
-    background-color: #059669;
+    background-color:var(--color-primario);
     color: white;
 }
 
@@ -161,7 +186,7 @@ body {
 }
 
 .boton-cerrar-sesion {
-    background: #ef4444;
+    background:var(--color-primario);
     color: white;
     border: none;
     padding: 0.5rem 1rem;
@@ -172,7 +197,7 @@ body {
 }
 
 .boton-cerrar-sesion:hover {
-    background: #dc2626;
+    background: var(--color-secundario);
 }
 
 /* ===== MENÚ MÓVIL ===== */
@@ -201,7 +226,7 @@ body {
 
 /* ===== SECCIÓN HERO ===== */
 .seccion-hero {
-    background: linear-gradient(135deg, #059669, #10b981);
+    background: linear-gradient(135deg, #054b9a, #1083b9);
     color: white;
     padding: 4rem 0;
     position: relative;
@@ -245,8 +270,8 @@ body {
 }
 
 .boton-comenzar {
-    background: white;
-    color: #059669;
+    background: var(--color-primario);
+    color: white;
     border: none;
     padding: 1rem 2rem;
     border-radius: 8px;
@@ -282,7 +307,7 @@ body {
 
 .palabra-destacada {
     background: #fbbf24;
-    color: #92400e;
+    color: var(--exito-fondo);
     padding: 0.25rem 0.5rem;
     border-radius: 4px;
     cursor: pointer;
@@ -386,7 +411,7 @@ body {
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 1rem;
-    color: #059669;
+    color: var(--color-secundario);
 }
 
 /* ===== SECCIÓN TESTIMONIOS ===== */
@@ -412,7 +437,7 @@ body {
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    border-left: 4px solid #059669;
+    border-left: 4px solid #eaa307;
 }
 
 .tarjeta-testimonio p {
@@ -424,7 +449,7 @@ body {
 
 .tarjeta-testimonio cite {
     font-weight: 600;
-    color: #059669;
+    color: var(--color-primario);
 }
 
 /* ===== SECCIÓN PRECIOS ===== */
@@ -457,7 +482,7 @@ body {
 }
 
 .tarjeta-precio.destacada {
-    border-color: #059669;
+    border-color: var(--color-acento);
     transform: scale(1.05);
     box-shadow: 0 10px 25px rgba(5, 150, 105, 0.2);
 }
@@ -472,7 +497,7 @@ body {
 .precio {
     font-size: 3rem;
     font-weight: 700;
-    color: #059669;
+    color: var(--color-primario);
     margin-bottom: 1.5rem;
 }
 
@@ -496,7 +521,7 @@ body {
 }
 
 .boton-plan {
-    background: #059669;
+    background: var(--color-acento);
     color: white;
     border: none;
     padding: 1rem 2rem;
@@ -508,7 +533,7 @@ body {
 }
 
 .boton-plan:hover {
-    background: #047857;
+    background: var(--color-acento);
     transform: translateY(-2px);
 }
 
@@ -565,7 +590,7 @@ body {
 
 .boton-agregar,
 .boton-practicar {
-    background: #059669;
+    background: var(--color-acento);
     color: white;
     border: none;
     padding: 0.75rem 1.5rem;
@@ -577,7 +602,7 @@ body {
 
 .boton-agregar:hover,
 .boton-practicar:hover {
-    background: #047857;
+    background: var(--color-acento);
     transform: translateY(-1px);
 }
 
@@ -601,7 +626,7 @@ body {
 
 .buscador-biblioteca:focus {
     outline: none;
-    border-color: #059669;
+    border-color: var(--color-acento);
     box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
 }
 
@@ -635,7 +660,7 @@ body {
 
 .selector-idioma:focus {
     outline: none;
-    border-color: #059669;
+    border-color: var(--color-acento);
 }
 
 /* ===== INTERRUPTOR ===== */
@@ -675,7 +700,7 @@ body {
 }
 
 .interruptor input:checked + .deslizador {
-    background-color: #059669;
+    background-color: var(--color-acento);
 }
 
 .interruptor input:checked + .deslizador:before {
@@ -1009,8 +1034,8 @@ body {
     }
     
     .enlace-menu:hover {
-        color: #10b981;
-        background-color: #065f46;
+        color: var(--color-acento);
+        background-color: var(--color-acento);
     }
     
     .contenido-panel,

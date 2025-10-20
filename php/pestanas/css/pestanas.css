@@ -1,3 +1,38 @@
+:root {
+  /* Colores principales */
+  --color-primario: #ff8a00;
+  --color-secundario: #f97316;
+  --color-acento: #c57c29fc;
+
+  /* Fondos */
+  --fondo-principal: #ffffff;
+  --fondo-secundario: #f9fafb;
+  --fondo-oscuro: #1f2937;
+  --modo-oscuro-fondo: #111827;
+
+  /* Texto */
+  --texto-principal: #333333;
+  --texto-secundario: #6b7280;
+  --texto-oscuro-titulos: #1f2937;
+
+  /* Bordes y separadores */
+  --borde-general: #e5e7eb;
+
+  /* Éxito */
+  --exito-fondo: #457B9D;
+  --exito-borde: #1d5f89;
+
+  /* Error */
+  --error-boton: #ef4444;
+  --error-boton-hover: #dc2626;
+  --error-fondo: #fef2f2;
+  --error-borde: #fca5a5;
+
+  /* Gris interactivo */
+  --gris-hover-fondo: #f3f4f6;
+  --gris-borde: #d1d5db;
+  --gris-inactivo: #9ca3af;
+}
 /* Estilos para el contenedor de estadísticas */
 .contenedor-estadisticas {
     display: grid;
@@ -100,7 +135,7 @@
 
 .contenedor-historial {
     display: grid;
-    grid-template-columns: 1.5fr 1fr; /* Calendario a la izquierda, progreso a la derecha */
+    grid-template-columns: 1.3fr 1.2fr; /* Calendario a la izquierda, progreso a la derecha */
     gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
@@ -151,7 +186,7 @@
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
-    color: #059669;
+    color: var(--color-primario);
     transition: transform 0.2s ease;
 }
 
@@ -209,15 +244,15 @@
 }
 
 .dia-calendario.sin-actividad {
-    background-color: #fef2f2;
+    background-color: #ff880047;
     border-color: #fca5a5;
-    color: #ef4444;
+    color: var(--color-primario);
 }
 
 .dia-calendario.activo {
-    background-color: #dcfce7;
-    border-color: #86efac;
-    color: #059669;
+    background-color: #5097de4c;
+    border-color: #457B9D;
+    color: #457B9D;
     font-weight: 600;
 }
 
@@ -233,7 +268,7 @@
 }
 
 .dia-calendario.activo .minutos-actividad {
-    color: #059669;
+    color: var(--fondo-oscuro);
 }
 
 /* Estilos para el progreso por modo */
@@ -299,7 +334,7 @@
 }
 
 .progreso-relleno {
-    background-color: #059669;
+    background-color: var(--exito-fondo);
     height: 100%;
     border-radius: 9999px;
     transition: width 0.3s ease-in-out;
@@ -308,7 +343,7 @@
 .precision-modo {
     font-size: 0.9rem;
     font-weight: 600;
-    color: #059669;
+    color: var(--color-primario);
 }
 
 /* Responsive para la sección de historial */

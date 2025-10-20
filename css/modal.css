@@ -1,3 +1,4 @@
+
 /* Modal de autenticación moderno */
 .auth-modal { 
     position: fixed;  
@@ -82,7 +83,7 @@
 
 .auth-tab.active { 
     background: #fff; 
-    color: #059669;
+    color: --9;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -112,7 +113,7 @@
 
 .auth-view input:focus {
     outline: none;
-    border-color: #059669;
+    border-color: --color-acento;
     box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
 }
 
@@ -128,7 +129,7 @@
     border: none; 
     border-radius: 8px; 
     cursor: pointer; 
-    background: #059669; 
+    background: --; 
     color: #fff; 
     font-weight: 600; 
     font-size: 1rem;
@@ -136,9 +137,9 @@
 }
 
 .auth-btn:hover {
-    background: #047857;
+    background: var(--color-acento);
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+    box-shadow: 0 4px 12px rgba(215, 177, 9, 0.3);
 }
 
 .auth-btn:active {
@@ -156,9 +157,9 @@
 }
 
 .auth-msg.success {
-    color: #059669;
+    color: var(--color-secundario);
     background: #f0fdf4;
-    border: 1px solid #bbf7d0;
+    border: 1px solid #f7f0bb;
 }
 
 .auth-msg.error {

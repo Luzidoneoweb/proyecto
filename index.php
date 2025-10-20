@@ -6,6 +6,7 @@
     <title>MiApp - Aprende idiomas leyendo</title>
     <link rel="stylesheet" href="css/estilo.css">
     <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/colores.css">
     <link rel="stylesheet" href="php/pestanas/css/pestanas.css" />
 </head>
 <body>
