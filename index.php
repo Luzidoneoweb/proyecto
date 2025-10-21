@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/modal.css">
     <link rel="stylesheet" href="css/colores.css">
     <link rel="stylesheet" href="php/pestanas/css/pestanas.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
     <?php require_once 'php/login_seguridad/seguridad.php'; ?>
@@ -53,10 +54,10 @@
                     </div>
                     <div class="demo-traduccion">
                         <div class="texto-ejemplo">
-                            <p>En el futuro los <span class="palabra-destacada">niños</span> podrán construir sus propios prototipos con legos</p>
+                            <p>Lee en inglés, entiende en español. <span class="palabra-destacada">Sin pausas.</span> Traducción instantánea mientras lees.</p>
                         </div>
                         <div class="tarjeta-traduccion">
-                            <span class="traduccion">children</span>
+                            <span class="traduccion">Demo</span>
                         </div>
                     </div>
                 </div>
@@ -121,11 +122,11 @@
             <!-- Sección de precios -->
             <section class="seccion-precios" id="precios">
                 <div class="contenedor-precios">
-                    <h2 class="titulo-seccion">Planes de Precios</h2>
+                    <h2 class="titulo-seccion">Planes ////</h2>
                     <div class="grid-precios">
                         <div class="tarjeta-precio">
                             <h3>Gratuito</h3>
-                            <div class="precio">$0<span>/mes</span></div>
+                            <div class="precio">0<span>///</span></div>
                             <ul class="lista-beneficios">
                                 <li>Traducciones ilimitadas de palabras</li>
                                 <li>10 traducciones de frases por día</li>
@@ -135,14 +136,14 @@
                         </div>
                         <div class="tarjeta-precio destacada">
                             <h3>Premium</h3>
-                            <div class="precio">$6<span>/mes</span></div>
+                            <div class="precio">0<span>////</span></div>
                             <ul class="lista-beneficios">
                                 <li>Traducciones ilimitadas</li>
                                 <li>Explicaciones contextuales</li>
                                 <li>Tarjetas avanzadas</li>
                                 <li>Sin anuncios</li>
                             </ul>
-                            <button class="boton-plan">Elegir Premium</button>
+                            <button class="boton-plan">Elegir miApp</button>
                         </div>
                     </div>
                 </div>

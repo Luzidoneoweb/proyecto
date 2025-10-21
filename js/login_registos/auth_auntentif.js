@@ -110,7 +110,16 @@
       if (passwordField) {
         const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
         passwordField.setAttribute('type', type);
-        toggle.classList.toggle('visible'); // Toggle a class for styling the icon
+        const visibilityOffIcon = toggle.querySelector('.visibility-icon:first-child');
+        const visibilityOnIcon = toggle.querySelector('.visibility-icon.hidden');
+
+        if (type === 'password') {
+          visibilityOffIcon.classList.remove('hidden');
+          visibilityOnIcon.classList.add('hidden');
+        } else {
+          visibilityOffIcon.classList.add('hidden');
+          visibilityOnIcon.classList.remove('hidden');
+        }
       }
     });
   });

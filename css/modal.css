@@ -102,7 +102,7 @@
 
 .auth-view input { 
     width: 100%; 
-    padding: 0.75rem; 
+    padding: 0.75rem 3rem 0.75rem 0.75rem; /* Añadir padding-right para el icono */
     box-sizing: border-box; 
     border: 2px solid #e5e7eb; 
     border-radius: 8px; 
@@ -183,7 +183,6 @@
     border: none;
     cursor: pointer;
     color: #6b7280;
-    font-size: 1rem;
     width: 2rem;
     height: 2rem;
     display: flex;
@@ -192,21 +191,23 @@
     border-radius: 50%;
     transition: all 0.2s ease;
     z-index: 10; /* Asegura que el botón esté por encima del input */
+    /* Asegura que el texto del icono no se muestre, solo el glifo */
+    font-size: 0; 
 }
 
-.toggle-password:hover {
-    background: #f3f4f6;
+.toggle-password .visibility-icon {
+    font-family: 'Material Icons'; /* Asegura que se use la fuente correcta */
+    font-size: 1.2rem; /* Tamaño del icono */
+    line-height: normal; /* Ajusta la altura de línea a normal para mejor centrado */
+    color: #6b7280; /* Color del icono */
+}
+
+.toggle-password:hover .visibility-icon {
     color: #374151;
 }
 
-.toggle-password::before {
-    content: 'visibility'; /* Icono de ojo */
-    font-family: 'Material Symbols Outlined'; /* Usar Material Icons */
-    font-size: 1.2rem;
-}
-
-.toggle-password.visible::before {
-    content: 'visibility_off'; /* Icono de ojo tachado cuando la contraseña es visible */
+.visibility-icon.hidden {
+    display: none;
 }
 
 /* Animaciones */
