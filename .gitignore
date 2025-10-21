@@ -1,0 +1,7 @@
+/doc/
+*.log
+/php/login_seguridad/logs/
+/db/traductor_app.sql
+/db/proyecto_actualizado
+
+
