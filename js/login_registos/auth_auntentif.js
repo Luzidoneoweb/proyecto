@@ -92,7 +92,7 @@
         tabs.forEach(t => t.classList.remove('active'));
         tabs[0].classList.add('active');
         views.forEach(v => v.style.display = v.id === 'loginView' ? 'block' : 'none');
-        document.querySelector('#loginView input[name="email"]').value = email;
+        document.querySelector('#loginView input[name="identifier"]').value = email;
         document.querySelector('#loginView input[name="password"]').focus();
       }, 800);
     } else {
